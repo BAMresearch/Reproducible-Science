@@ -26,5 +26,6 @@ For completing the tasks itself, however, we mainly rely on the work of the inte
    example.md
    docker.md
    pydoit.md
+   conda.md
    scripts/modify_files.rst
 
