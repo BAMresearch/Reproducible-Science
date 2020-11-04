@@ -84,7 +84,7 @@ conda create -n exampleEnv -c conda-forge biopython=1.78
 ~~~
 
 ### Creating environments from a file
-To share environments it can be useful to define them in a file, which can be easily shared and create the environment from the file. This is done by creating a file `exampleEnv.yaml` with the following content:
+To share environments it can be useful to define them in a yaml file, which can be easily shared and create the environment from the file. For example create a file called `exampleEnv.yaml` with the following content:
 ~~~yaml
 name: exampleEnv
 channels:
