@@ -21,7 +21,12 @@ Conda can be installed as part of the [Miniconda](https://docs.conda.io/en/lates
 
 Channels
 --------
-Software packages for conda (also called `recipes`) are provided in repositories called `channels`. Channels can be created by anyone and many organizations or even individual researchers maintain their own channels. By default conda will install packages from the main channel at [anaconda.com](https://repo.anaconda.com/pkgs/), but you specify other channels, when installing packages (see below). Useful channels include [`conda-forge`](https://anaconda.org/conda-forge) for community maintained packages, [`r`](https://anaconda.org/r) for R packages, and [`bioconda`](https://anaconda.org/bioconda) for bioinformatics packages. You can use the search on the [Anaconda main page](https://anaconda.org/) to search for channels, that provide a certain package. Just remember, that anyone can provide a channel and make sure that the channel is reliable.
+Software packages for conda (also called `recipes`) are provided in repositories called `channels`.
+Channels can be created by anyone and many organizations or even individual researchers maintain their own channels. 
+By default conda will install packages from the main channel at [anaconda.com](https://repo.anaconda.com/pkgs/), but you can specify other channels, when installing packages (see below).
+Useful channels include [`conda-forge`](https://anaconda.org/conda-forge) for community maintained packages, [`r`](https://anaconda.org/r) for R packages, and [`bioconda`](https://anaconda.org/bioconda) for bioinformatics packages.
+You can use the search on the [Anaconda main page](https://anaconda.org/) to search for channels, that provide a certain package.
+Just remember that anyone can provide a channel and make sure that the channel is reliable and the maintainer is trustworthy.
 
 Managing your environments
 --------------------------
@@ -31,10 +36,10 @@ This is only a short introduction on managing you environments. For full details
 ~~~sh
 conda create -n exampleEnv
 ~~~
-The easiest way to create an environment is to just specify its name (with `-n`). This will create an empty environment in that you can install packages late (see below).  
+The easiest way to create an environment is to just specify its name (with `-n`). This will create an empty environment in which you can install packages later (see below).  
 
 ### Activating (entering) an environment
-To work with your environment, you have to activate it. While an environment is activated all packages that were installed into it are available as if the were installed system wide.  
+To work with your environment, you have to activate it. While an environment is activated all packages that were installed into it are available as if they were installed system-wide.  
 To activate your newly created environment you use:
 ~~~sh
 conda activate exampleEnv
@@ -43,7 +48,7 @@ Depending on your conda installation, this might not work. In this case on Linux
 ~~~sh
 source activate exampleEnv
 ~~~
-After the environment is activated the command prompt of your terminal should change to include the name of the environment for example it might look like this:
+After the environment is activated the command prompt of your terminal should change to include the name of the environment. For example it might look like this:
 ~~~sh
 (exampleEnv) heeger@lagoa:~$
 ~~~
@@ -55,7 +60,7 @@ conda deactivate
 ~~~
 
 ### Installing packages in an environment
-Once you activated an environment you can install additional packages withe `install` command. For example to install `doit` use:
+Once you activated an environment you can install additional packages with the `install` command. For example to install `doit` use:
 ~~~sh
 conda install doit
 ~~~
@@ -95,7 +100,7 @@ dependencies:
     - bioconductor-mgsa=1.38.0
 ~~~
 
-The environment can be create form this file with the command:
+The environment can be created from this file with the command:
 ~~~sh
 conda env create --file exampleEnv.yaml
 ~~~
