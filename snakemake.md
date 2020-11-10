@@ -205,7 +205,7 @@ rule clusterExample2:
 
 Conda integration
 -----------------
-Snakemake offers direct integration with [conda](docs.conda.io), which allows to fix software versions as well as  automation of installation.
+Snakemake offers direct integration with [conda](https://docs.conda.io), which allows to fix software versions as well as  automation of installation.
 For this you have to create a conda environment file that defines the software, the version you want and the conda `channel` it can be found in (if not the default).
 For example for [Blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi) this environment file (`blast.yaml`) would look like this:
 ~~~yaml
