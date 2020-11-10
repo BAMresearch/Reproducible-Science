@@ -232,7 +232,7 @@ Snakemake will then use conda (which has to be installed) to automatically insta
 
 Other features
 --------------
-Snakemake is a powerful tool, that offers many additional features. You can find more details in the [documentation](snakemake.readthedocs.io). Interesting features include:
+Snakemake is a powerful tool, that offers many additional features. You can find more details in the [documentation](https://snakemake.readthedocs.io). Interesting features include:
  * [Cluster](https://snakemake.readthedocs.io/en/stable/executing/cluster.html) and [cloud](https://snakemake.readthedocs.io/en/stable/executing/cloud.html) execution
  * Automated [report generation](https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html)
  * [Modularization](https://snakemake.readthedocs.io/en/stable/snakefiles/modularization.html) with wrappers and sub-workflows
