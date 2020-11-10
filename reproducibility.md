@@ -37,8 +37,9 @@ most widely known and almost universally available (at least on Linux systems),
 is [make](https://en.wikipedia.org/wiki/Make_(software)). If you're already
 familiar with make and it suits your work, go with it. However, I find the
 syntax dismal, and the timestamp-based decisions sometimes result in
-unnecessary reruns. A python-based alternative which we're going to use here is
-[doit](https://pydoit.org/). If you know Python, you'll feel right at home.
+unnecessary reruns. Python-based alternatives which we're going to use here are
+[doit](pydoit.md) or [Snakemake](snakemake.md) . If you know Python, you'll 
+feel right at home.
 
 
 Keep everything under version control
