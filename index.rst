@@ -29,5 +29,8 @@ For completing the tasks itself, however, we mainly rely on the work of the inte
    snakemake.md
    conda.md
    scripts/modify_files.rst
-   JupyterLab with version control <https://bamresearch.github.io/jupyter-integration/en_jupyterlab_with_version_control.html>
-   Using Git and TortoiseGit <https://bamresearch.github.io/jupyter-integration/en_version_control_with_git.html>
+From `BAM/jupyter-integration <https://github.com/BAMResearch/jupyter-integration>`_:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* `JupyterLab with version control <https://bamresearch.github.io/jupyter-integration/en_jupyterlab_with_version_control.html>`_
+* `Using Git and TortoiseGit <https://bamresearch.github.io/jupyter-integration/en_version_control_with_git.html>`_
