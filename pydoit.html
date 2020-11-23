@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>doit &mdash; Reproducible Computational Science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Snakemake" href="snakemake.html" />
+    <link rel="prev" title="Docker" href="docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Reproducible Computational Science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reproducibility.html">What makes scientific results reproducible?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">A complete, executable example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">doit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-it">What is it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-should-i-use-it">Why should I use it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-multiple-systems">Working with multiple systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#proposed-setup">Proposed setup:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#skipping-huge-simulations">Skipping huge simulations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="snakemake.html">Snakemake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts/modify_files.html">Modifying files in python</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Reproducible Computational Science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>doit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pydoit.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="doit">
+<h1>doit<a class="headerlink" href="#doit" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://pydoit.org">doit</a> on <a class="reference external" href="https://github.com/pydoit/doit">github</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip3 install doit
+apt install python3-doit 
+</pre></div>
+</div>
+<div class="section" id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">doit</span></code> is a python-based workflow tool on file-level that lets you specify <em>actions</em> that connect <em>dependencies</em> to <em>targets</em>, e.g.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># file dodo.py</span>
+<span class="k">def</span> <span class="nf">task_paper</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;targets&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;paper.pdf&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;file_dep&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;paper.tex&quot;</span><span class="p">,</span> <span class="s2">&quot;img.png&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;actions&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pdflatex paper.tex&quot;</span><span class="p">]}</span>
+
+<span class="k">def</span> <span class="nf">task_plot</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;targets&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;img.png&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;file_dep&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;plot.py&quot;</span><span class="p">,</span> <span class="s2">&quot;simulation.py&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;actions&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;python3 simulation.py --output plot_data.vtu&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;python3 plot.py --input plot_data.vtu&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>You can define your workflows as chains of independent or connected tasks and calling <code class="docutils literal notranslate"><span class="pre">doit</span></code> in the command line will automatically run them in the correct sequence.
+So a <code class="docutils literal notranslate"><span class="pre">doit</span> <span class="pre">paper</span></code> will first run the <code class="docutils literal notranslate"><span class="pre">task_plot</span></code> to create the <code class="docutils literal notranslate"><span class="pre">img.png</span></code> and call <code class="docutils literal notranslate"><span class="pre">pdflatex</span></code> afterwards.
+Also, it will only rerun <em>actions</em> if their <em>dependencies</em> change.
+That means that running <code class="docutils literal notranslate"><span class="pre">doit</span> <span class="pre">paper</span></code> again, will result in no <em>action</em>, as everything is up-to-date.
+Modifying only <code class="docutils literal notranslate"><span class="pre">paper.tex</span></code>, will cause <code class="docutils literal notranslate"><span class="pre">doit</span></code> to run <code class="docutils literal notranslate"><span class="pre">pdflatex</span></code> again.
+Modifying <code class="docutils literal notranslate"><span class="pre">plot.py</span></code> requires all tasks to be run again.</p>
+</div>
+<div class="section" id="why-should-i-use-it">
+<h2>Why should I use it?<a class="headerlink" href="#why-should-i-use-it" title="Permalink to this headline">¶</a></h2>
+<p>A single <code class="docutils literal notranslate"><span class="pre">doit</span></code> command will trigger the execution of the whole chain of actions to produce a desired output (like a paper). Benefits:</p>
+<ul class="simple">
+<li><p>It documents all steps from source files to the output in an objective way.</p></li>
+<li><p>It allows you to easily reproduce a publication after a long time.</p></li>
+<li><p>Changes to input files automatically propagate you changes in the figures/pdf.</p></li>
+<li><p>It proofs to you/colleges/reviewers that no manual manipulations occur.</p></li>
+</ul>
+</div>
+<div class="section" id="working-with-multiple-systems">
+<h2>Working with multiple systems<a class="headerlink" href="#working-with-multiple-systems" title="Permalink to this headline">¶</a></h2>
+<p>Complex workflows may require several machines to run the actions. Reasons include:</p>
+<ul class="simple">
+<li><p>Several scientists want to work on the same workflow</p></li>
+<li><p>Compute tools or postprocessing tools are not available</p>
+<ul>
+<li><p>licensing</p></li>
+<li><p><em>just reviewing</em> the text of a document on a laptop</p></li>
+<li><p>HPC machine</p></li>
+</ul>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">doit</span></code> builds a database (in the folder of the <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>) that tracks (via hashes of the <em>dependencies</em>) which <em>actions</em> need to be rerun.
+That means that each task has to be executed at least once, even if the <em>targets</em> already exist or are up-to-date.
+Problems arise if, due to some of the reasons above, the current machine is unable to do so.</p>
+<p>One remedy is to store a <em>target</em> in our version control system and to decouple the whole workflow into multiple <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> files, each in a separate folder.</p>
+<div class="section" id="proposed-setup">
+<h3>Proposed setup:<a class="headerlink" href="#proposed-setup" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>    <span class="n">repo</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">dodo</span><span class="o">.</span><span class="n">py</span>           <span class="c1"># generates input data</span>
+    <span class="n">repo</span><span class="o">/</span><span class="n">simulations</span><span class="o">/</span><span class="n">dodo</span><span class="o">.</span><span class="n">py</span>    <span class="c1"># turns input data into results</span>
+    <span class="n">repo</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">dodo</span><span class="o">.</span><span class="n">py</span>         <span class="c1"># turns results into images</span>
+    <span class="n">repo</span><span class="o">/</span><span class="n">paper</span><span class="o">/</span><span class="n">dodo</span><span class="o">.</span><span class="n">py</span>          <span class="c1"># turns images into a paper</span>
+    <span class="n">repo</span><span class="o">/</span><span class="n">dodo</span><span class="o">.</span><span class="n">py</span>                <span class="c1"># optionally connect all tasks</span>
+</pre></div>
+</div>
+<p>This breaks the chain of tasks and the <code class="docutils literal notranslate"><span class="pre">paper/dodo.py</span></code> simply does not know that the <em>dependencies</em> of its tasks are <em>targets</em> in <code class="docutils literal notranslate"><span class="pre">images/dodo.py</span></code>.</p>
+<p>If you want to build the <code class="docutils literal notranslate"><span class="pre">paper.pdf</span></code> without rebuilding the files in <code class="docutils literal notranslate"><span class="pre">repo/images/</span></code>, you can simply run <code class="docutils literal notranslate"><span class="pre">doit</span></code> in the <code class="docutils literal notranslate"><span class="pre">repo/paper/</span></code> directory.
+If you want to execute the full workflow, calling <code class="docutils literal notranslate"><span class="pre">doit</span></code> in <code class="docutils literal notranslate"><span class="pre">repo</span></code> to trigger the complete workflow.</p>
+<p>If you work with absolute paths in your <code class="docutils literal notranslate"><span class="pre">dodo</span></code> files, such as …</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># repo/simulation/dodo.py</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="k">def</span> <span class="nf">task_simulation_1</span><span class="p">():</span>
+    <span class="n">simulation_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span>
+    <span class="n">script</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">simulation_dir</span> <span class="o">/</span> <span class="s2">&quot;simulation_1.py&quot;</span><span class="p">)</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">simulation_dir</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;input_1.dat&quot;</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">simulation_dir</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;images&quot;</span> <span class="o">/</span> <span class="s2">&quot;graph_1.pdf&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;file_dep&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">script</span><span class="p">,</span> <span class="n">parameters</span><span class="p">],</span>
+        <span class="s2">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">image</span><span class="p">],</span>
+        <span class="s2">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;python3 </span><span class="si">{</span><span class="n">script</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">parameters</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>… and …</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># repo/paper/dodo.py</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="k">def</span> <span class="nf">task_paper</span><span class="p">():</span>
+    <span class="n">paper_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span>
+    <span class="n">tex</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">paper_dir</span> <span class="o">/</span> <span class="s2">&quot;paper.tex&quot;</span><span class="p">)</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">paper_dir</span> <span class="o">/</span> <span class="s2">&quot;paper.pdf&quot;</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">paper_dir</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;images&quot;</span> <span class="o">/</span> <span class="s2">&quot;graph_1.pdf&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;file_dep&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">tex</span><span class="p">,</span> <span class="n">image</span><span class="p">],</span>
+        <span class="s2">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">pdf</span><span class="p">],</span>
+        <span class="s2">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;pdflatex </span><span class="si">{</span><span class="n">tex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>… that makes it easy to connect the <code class="docutils literal notranslate"><span class="pre">image</span></code> target of the simulation task with the same <code class="docutils literal notranslate"><span class="pre">image</span></code> dependency of the paper task by just importing both into the same root file</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># repo/dodo.py</span>
+<span class="kn">from</span> <span class="nn">simulation.dodo</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">paper.dodo</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note that is the opposite of why you want to use <code class="docutils literal notranslate"><span class="pre">doit</span></code> in the first place.
+It is now your responsibility to run the whole workflow of <code class="docutils literal notranslate"><span class="pre">repo/dodo.py</span></code> from time to time manually, or via a <em>nighly build</em> on some server.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="skipping-huge-simulations">
+<h2>Skipping huge simulations<a class="headerlink" href="#skipping-huge-simulations" title="Permalink to this headline">¶</a></h2>
+<p>If you just want to skip tasks (e.g. if they are too time consuming) you can define a flag and skip the task definition, if that flag is set.
+The simplest way would be to manually set the flag in the <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file like</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">def</span> <span class="nf">skip</span><span class="p">():</span>
+    <span class="k">return</span> <span class="kc">True</span> <span class="c1"># set that to false manually</span>
+
+<span class="k">def</span> <span class="nf">task_huge_simulation</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">skip</span><span class="p">():</span>
+        <span class="k">return</span>
+    <span class="k">return</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span> <span class="c1"># file_dep, actions, dependencies</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> itself it not a dependency, so changing this file does not cause a rerun of up-to-date tasks.
+As the file is part of you version control, it will, however, cause a rather annoying diff, if you swap this flag.
+So it can be advantageous to change the flag without modifying the file, e.g. via an environment variable.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">skip</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    return False if &quot;DOIT_SKIP&quot; is empty or does not exist.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;DOIT_SKIP&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>This allows you to have “DOIT_SKIP=True” on your local machine, but run it with “DOIT_SKIP=” from time to time on a server to ensure full reproducibility.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="snakemake.html" class="btn btn-neutral float-right" title="Snakemake" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="docker.html" class="btn btn-neutral float-left" title="Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Thomas Titscher, Christoph Pohl
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

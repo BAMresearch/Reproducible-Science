@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What makes scientific results reproducible? &mdash; Reproducible Computational Science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="A complete, executable example" href="example.html" />
+    <link rel="prev" title="Reproducible Computational Science - a Guideline" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Reproducible Computational Science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">What makes scientific results reproducible?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#automate-everything">Automate everything</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keep-everything-under-version-control">Keep everything under version control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#archive-your-environment">Archive your environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-analyses-that-include-randomness-note-underlying-random-seeds">For Analyses That Include Randomness, Note Underlying Random Seeds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#record-intermediate-results">Record intermediate results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#provide-public-access-to-scripts-runs-and-results">Provide Public Access to Scripts, Runs, and Results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">A complete, executable example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pydoit.html">doit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snakemake.html">Snakemake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts/modify_files.html">Modifying files in python</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Reproducible Computational Science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>What makes scientific results reproducible?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/reproducibility.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-makes-scientific-results-reproducible">
+<h1>What makes scientific results reproducible?<a class="headerlink" href="#what-makes-scientific-results-reproducible" title="Permalink to this headline">¶</a></h1>
+<p>The idea of reproducible science is to provide not only the final results of
+your research (often in the form of a paper), but also enable others to redo
+your experiments and analysis. This allows for external verification, greater
+trust in your results and comparative ease in reconstructing details of your
+own work in the future.</p>
+<p>So what is necessary for your computational results to be reproducible? The
+following is based loosly on
+<a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285">this article</a>,
+which I would encourage you to read.</p>
+<div class="section" id="automate-everything">
+<h2>Automate everything<a class="headerlink" href="#automate-everything" title="Permalink to this headline">¶</a></h2>
+<p>You should have no manual steps in your result creation, that means codifying
+everything you do. This often also replaces a lot of documentation of the sort
+“click here, copy this from here to there, and rename that to xyz”. There are
+several ways of achieving that.</p>
+<p>You could write a straightforward shell script in
+<a class="reference external" href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">bash</a> if you’re under Linux
+or MacOSX, or <a class="reference external" href="https://en.wikipedia.org/wiki/Batch_file">batch files</a> or
+<a class="reference external" href="https://en.wikipedia.org/wiki/PowerShell">Powershell</a> if you’re under Windows.
+This has, however, a serious drawback: all steps in your pipeline are run
+again, even if that is not necessary. For example, if you only change your
+postprocessing part, there is no need to run the simulation again. (You
+probably could implement checks like this in your favorite shell language, but
+then you’re just reimplementing some of the solutions below. Don’t.)</p>
+<p>Better solutions to this are build systems, of which there are
+<a class="reference external" href="https://en.wikipedia.org/wiki/List_of_build_automation_software">many</a>. The
+most widely known and almost universally available (at least on Linux systems),
+is <a class="reference external" href="https://en.wikipedia.org/wiki/Make_(software)">make</a>. If you’re already
+familiar with make and it suits your work, go with it. However, I find the
+syntax dismal, and the timestamp-based decisions sometimes result in
+unnecessary reruns. Python-based alternatives which we’re going to use here are
+<a class="reference internal" href="pydoit.html"><span class="doc">doit</span></a> or <a class="reference internal" href="snakemake.html"><span class="doc">Snakemake</span></a> . If you know Python, you’ll
+feel right at home.</p>
+</div>
+<div class="section" id="keep-everything-under-version-control">
+<h2>Keep everything under version control<a class="headerlink" href="#keep-everything-under-version-control" title="Permalink to this headline">¶</a></h2>
+<p>Version control is a way of keeping track of the changes you made to your code
+and why. While there are also
+<a class="reference external" href="https://en.wikipedia.org/wiki/List_of_version-control_software">many</a> version
+control systems, one has emerged as the clear winner and is widely known and
+supported.</p>
+<p>Learn <a class="reference external" href="https://git-scm.com/">Git</a> and use it habitually everywhere, all the time.</p>
+</div>
+<div class="section" id="archive-your-environment">
+<h2>Archive your environment<a class="headerlink" href="#archive-your-environment" title="Permalink to this headline">¶</a></h2>
+<p>This part is quite difficult. Software changes its behaviour as newer versions
+are released. To make your results reproducible, the code needs to be run with
+the same version again. The least you should do is write down the version
+numbers of the software that is important. But this is prone to error, likely
+to become out-of-date and makes reproducing your results much more difficult
+than it should be.</p>
+<p>A better solution would be to provide a virtual machine with all the software
+that you’ve used preinstalled. This satisfies the reproducibility requirements,
+but is also cumbersome to use and archive, and not very transparent in terms of
+how you’ve set up your environment.</p>
+<p>A new approach is to use containers, which will allow you to easily distribute
+your environmental setup along with the rest of the code, while also being
+faster than virtual machines. This is discussed in detail in the
+<a class="reference internal" href="docker.html"><span class="doc">docker</span></a> section.</p>
+</div>
+<div class="section" id="for-analyses-that-include-randomness-note-underlying-random-seeds">
+<h2>For Analyses That Include Randomness, Note Underlying Random Seeds<a class="headerlink" href="#for-analyses-that-include-randomness-note-underlying-random-seeds" title="Permalink to this headline">¶</a></h2>
+<p>To make results that stem from computations that include randomness
+reproducible, set the seed of the RNG to a fixed value.</p>
+</div>
+<div class="section" id="record-intermediate-results">
+<h2>Record intermediate results<a class="headerlink" href="#record-intermediate-results" title="Permalink to this headline">¶</a></h2>
+<p>This is where it gets tricky. If you’re intermediate files are just a couple of
+MBs, than sure, check them into Git and be done with it (use Git LFS).</p>
+<p>For large simulations, possible approaches could be</p>
+<ol class="simple">
+<li><p>Put them into &lt;insert-favorite-cloud-storage-provider-here&gt;, and make it
+clear where to find this data.</p></li>
+<li><p>Take a look at <a class="reference external" href="https://git-annex.branchable.com/">Git-Annex</a>, where you can
+combine git with storing data anywhere you want (other servers, your phone,
+Dropbox, Amazon S3, USB stick, Git LFS, Bittorrent, Google Drive, IPFS, …).</p></li>
+<li><p>Just give up. At a certain scale, in situ visualization is the only feasible
+thing anyway</p></li>
+</ol>
+</div>
+<div class="section" id="provide-public-access-to-scripts-runs-and-results">
+<h2>Provide Public Access to Scripts, Runs, and Results<a class="headerlink" href="#provide-public-access-to-scripts-runs-and-results" title="Permalink to this headline">¶</a></h2>
+<p>None of the above matters in terms of me being able to reproduce your results if I’m not able to find your code/data. For code, a good approach would be to upload your repository to <a class="reference external" href="https://github.com/">Github</a> and include the link in your paper. Use a <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">tag</a> to mark the version that created the final paper.</p>
+<p>Additionally, you can upload your code and data to <a class="reference external" href="https://zenodo.org/">Zenodo</a>, where you’ll get a DOI for it that will allow you to reference it in the future.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="example.html" class="btn btn-neutral float-right" title="A complete, executable example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Reproducible Computational Science - a Guideline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Thomas Titscher, Christoph Pohl
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

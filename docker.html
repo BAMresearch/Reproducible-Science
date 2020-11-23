@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Docker &mdash; Reproducible Computational Science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="doit" href="pydoit.html" />
+    <link rel="prev" title="A complete, executable example" href="example.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Reproducible Computational Science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reproducibility.html">What makes scientific results reproducible?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">A complete, executable example</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-it">What is it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-should-i-use-it">Why should I use it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-install-it">How to install it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-run-stuff-under-docker">How to run stuff under Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-your-own-images">Creating your own images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uploading-your-images-to-dockerhub">Uploading your images to Dockerhub</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pydoit.html">doit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snakemake.html">Snakemake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts/modify_files.html">Modifying files in python</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Reproducible Computational Science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Docker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/docker.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<p>Docker is a software to run what are called “containers”. They are bundles of
+software that are isolated from the main operating system. You can think of
+them as fast and lightweight virtual machines.</p>
+</div>
+<div class="section" id="why-should-i-use-it">
+<h2>Why should I use it?<a class="headerlink" href="#why-should-i-use-it" title="Permalink to this headline">¶</a></h2>
+<p>To be able to reproduce the computations, statistical evaluations, etc. of your
+project, you need to specify all the software (including version numbers) that
+was used in producing your results. Furthermore, you would like to provide
+others with an easy way to set up their own environment with this set of
+software ready to be used. Docker is an ideal tool to achieve this.</p>
+<p>The containers are specified by a human-readable and version-controllable
+text file (the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>) and can be uploaded to a central repository
+(Dockerhub) that allows you and others to easily access the images you create.</p>
+</div>
+<div class="section" id="how-to-install-it">
+<h2>How to install it<a class="headerlink" href="#how-to-install-it" title="Permalink to this headline">¶</a></h2>
+<p>If you’re under Debian or Ubuntu, you can install Docker via apt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">docker</span><span class="o">.</span><span class="n">io</span>
+</pre></div>
+</div>
+<p>If you want to run Docker as a user, you need to add yourself to the <code class="docutils literal notranslate"><span class="pre">docker</span></code> group:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo gpasswd -a $USER docker
+</pre></div>
+</div>
+<p>You may need to log out or reboot for this to take effect.</p>
+<p>For other operating systems, take a look at the <a class="reference external" href="https://docs.docker.com/install/">official documentation</a>.</p>
+</div>
+<div class="section" id="how-to-run-stuff-under-docker">
+<h2>How to run stuff under Docker<a class="headerlink" href="#how-to-run-stuff-under-docker" title="Permalink to this headline">¶</a></h2>
+<p>If you want to run programs under Docker, you simply say</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>So for example, if I want to run my code under Ubuntu 18.04, I can do that no
+matter what my actual OS is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">ubuntu</span><span class="p">:</span><span class="mf">18.04</span> <span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lsb</span><span class="o">-</span><span class="n">release</span>
+</pre></div>
+</div>
+<p>will print</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DISTRIB_ID</span><span class="o">=</span><span class="n">Ubuntu</span>
+<span class="n">DISTRIB_RELEASE</span><span class="o">=</span><span class="mf">18.04</span>
+<span class="n">DISTRIB_CODENAME</span><span class="o">=</span><span class="n">bionic</span>
+<span class="n">DISTRIB_DESCRIPTION</span><span class="o">=</span><span class="s2">&quot;Ubuntu 18.04.4 LTS&quot;</span>
+</pre></div>
+</div>
+<p>even if your computer is running Windows or Mac OSX.</p>
+<p>This can also be useful if you want to try your code for different versions of say Python:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">python</span><span class="p">:</span><span class="mf">3.6</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import sys; print(sys.version)&quot;</span>
+<span class="n">docker</span> <span class="n">run</span> <span class="n">python</span><span class="p">:</span><span class="mf">3.7</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import sys; print(sys.version)&quot;</span>
+<span class="n">docker</span> <span class="n">run</span> <span class="n">python</span><span class="p">:</span><span class="mf">3.8</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import sys; print(sys.version)&quot;</span>
+</pre></div>
+</div>
+<p>If you want to work interactively on your container, you need to pass the
+<code class="docutils literal notranslate"><span class="pre">--tty</span></code> and <code class="docutils literal notranslate"><span class="pre">--interactive</span></code> options, commonly shortened to <code class="docutils literal notranslate"><span class="pre">-ti</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">ti</span> <span class="n">ubuntu</span> <span class="n">bash</span>
+</pre></div>
+</div>
+<p>So far, you could only access the files inside the container, but more often
+than not you want to run the code you’re currently working on that is not
+bundled into a Docker image (yet). To do this, you can bind local folders to
+folder names inside the container using the <code class="docutils literal notranslate"><span class="pre">--volume</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">v</span> <span class="o">&lt;</span><span class="n">local</span><span class="o">-</span><span class="nb">dir</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">name</span><span class="o">-</span><span class="n">inside</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>So if I want to run scripts from <code class="docutils literal notranslate"><span class="pre">~/code/project</span></code> inside the container, I would do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">v</span> <span class="o">~/</span><span class="n">code</span><span class="o">/</span><span class="n">project</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">project</span> <span class="n">python</span><span class="p">:</span><span class="mf">3.7</span> <span class="n">python3</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">myscript</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>All the options of <code class="docutils literal notranslate"><span class="pre">run</span></code> are documented <a class="reference external" href="https://docs.docker.com/engine/reference/commandline/run/">here</a>.</p>
+</div>
+<div class="section" id="creating-your-own-images">
+<h2>Creating your own images<a class="headerlink" href="#creating-your-own-images" title="Permalink to this headline">¶</a></h2>
+<p>Sooner rather than later you probably want to install additional software to a
+Docker image. You can build your own images based on others by writing a
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>. For example, say you want to use
+<a class="reference external" href="https://pandas.pydata.org/">pandas</a>, which is not part of the basic python
+image. Create a file called <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> with the following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">python</span><span class="p">:</span><span class="mf">3.7</span>
+<span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">pandas</span>
+</pre></div>
+</div>
+<p>You can probably already guess what this does. The first line says “base the
+new image on the <code class="docutils literal notranslate"><span class="pre">python:3.7</span></code> image”, and the second line installs pandas using
+pip. To create the image, use <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span></code> and the <code class="docutils literal notranslate"><span class="pre">--tag</span></code> option to give it
+a name, and run this in the directory the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> is in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">tag</span> <span class="n">my_pandas_image</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>With this new image, you can now use pandas from Docker:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">my_pandas_image</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import pandas; print(pandas.__version__)&quot;</span>
+</pre></div>
+</div>
+<p>The example <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> is also in this repository.</p>
+</div>
+<div class="section" id="uploading-your-images-to-dockerhub">
+<h2>Uploading your images to Dockerhub<a class="headerlink" href="#uploading-your-images-to-dockerhub" title="Permalink to this headline">¶</a></h2>
+<p>For now, you can only use <code class="docutils literal notranslate"><span class="pre">my_pandas_image</span></code> on your machine. To be able to
+download it from different computers and for others to use it in reproducing
+your results, you need to upload it somewhere. You can use Dockerhub for this.
+We have been implicitly pulling images from Dockerhub throughout, e.g. the
+<code class="docutils literal notranslate"><span class="pre">python:3.7</span></code> image.</p>
+<p>First, you need an account for Dockerhub. Go to
+<a class="reference external" href="https://hub.docker.com/signup">their website</a> and register there. Then, login on your computer by running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">login</span>
+</pre></div>
+</div>
+<p>which will ask you for your username and password, and store these so that you
+can push images to your account.</p>
+<p>To push an image, it needs to be tagged correctly with your account name, so
+for us this would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">tag</span> <span class="n">fb77</span><span class="o">/</span><span class="n">my_pandas_image</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">fb77</span></code> is the username of our Dockerhub account. Substitute your
+own login. Now you can upload the new image to Dockerhub using the <code class="docutils literal notranslate"><span class="pre">push</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">push</span>
+</pre></div>
+</div>
+<p>Once that is finished, you can run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">fb77</span><span class="o">/</span><span class="n">my_pandas_image</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import pandas; print(pandas.__version__)&quot;</span>
+</pre></div>
+</div>
+<p>on any computer that has an internet connection (and Docker installed).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pydoit.html" class="btn btn-neutral float-right" title="doit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="example.html" class="btn btn-neutral float-left" title="A complete, executable example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Thomas Titscher, Christoph Pohl
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

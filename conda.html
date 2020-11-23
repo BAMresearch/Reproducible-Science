@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Conda &mdash; Reproducible Computational Science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modifying files in python" href="scripts/modify_files.html" />
+    <link rel="prev" title="Snakemake" href="snakemake.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Reproducible Computational Science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reproducibility.html">What makes scientific results reproducible?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">A complete, executable example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pydoit.html">doit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snakemake.html">Snakemake</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Conda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-it">What is it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-should-i-use-it">Why should I use it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#channels">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-your-environments">Managing your environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-empty-environment">Creating an empty environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#activating-entering-an-environment">Activating (entering) an environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deactivating-leaving-an-environment">Deactivating (leaving) an environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-packages-in-an-environment">Installing packages in an environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-environment-with-packages">Creating an environment with packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-different-channels">Using different channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-environments-from-a-file">Creating environments from a file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scripts/modify_files.html">Modifying files in python</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Reproducible Computational Science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Conda</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/conda.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="conda">
+<h1>Conda<a class="headerlink" href="#conda" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> is a package/dependency management system that allows users to create reproducible computing environments for their analysis. It was originally developed for Python libraries, but has since been extended to also handle other software. It works with <code class="docutils literal notranslate"><span class="pre">environments</span></code> in which software is installed and that are (mostly) separated from the operating system.</p>
+</div>
+<div class="section" id="why-should-i-use-it">
+<h2>Why should I use it?<a class="headerlink" href="#why-should-i-use-it" title="Permalink to this headline">¶</a></h2>
+<p>Conda allows you to separate the execution environment for different projects and explicitly control the version of each software in the environment independently of the operating system software management. This means you can have</p>
+<ul class="simple">
+<li><p>different versions of the same software for each project (it its own environment) without causing conflicts</p></li>
+<li><p>explicitly control the version of each software in your analysis to ensure reproducibility and prevent changes in results caused by version changes</p></li>
+<li><p>install software that might not be available from the package management of your operating system</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Conda can be installed as part of the <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> package. It works on Windows, MacOSX and Linux. See the website for further installation instructions.</p>
+</div>
+<div class="section" id="channels">
+<h2>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h2>
+<p>Software packages for conda (also called <code class="docutils literal notranslate"><span class="pre">recipes</span></code>) are provided in repositories called <code class="docutils literal notranslate"><span class="pre">channels</span></code>.
+Channels can be created by anyone and many organizations or even individual researchers maintain their own channels.
+By default conda will install packages from the main channel at <a class="reference external" href="https://repo.anaconda.com/pkgs/">anaconda.com</a>, but you can specify other channels, when installing packages (see below).
+Useful channels include <a class="reference external" href="https://anaconda.org/conda-forge"><code class="docutils literal notranslate"><span class="pre">conda-forge</span></code></a> for community maintained packages, <a class="reference external" href="https://anaconda.org/r"><code class="docutils literal notranslate"><span class="pre">r</span></code></a> for R packages, and <a class="reference external" href="https://anaconda.org/bioconda"><code class="docutils literal notranslate"><span class="pre">bioconda</span></code></a> for bioinformatics packages.
+You can use the search on the <a class="reference external" href="https://anaconda.org/">Anaconda main page</a> to search for channels, that provide a certain package.
+Just remember that anyone can provide a channel and make sure that the channel is reliable and the maintainer is trustworthy.</p>
+</div>
+<div class="section" id="managing-your-environments">
+<h2>Managing your environments<a class="headerlink" href="#managing-your-environments" title="Permalink to this headline">¶</a></h2>
+<p>This is only a short introduction on managing you environments. For full details see the conda documentation on this topic <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">here</a>.</p>
+<div class="section" id="creating-an-empty-environment">
+<h3>Creating an empty environment<a class="headerlink" href="#creating-an-empty-environment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda create -n exampleEnv
+</pre></div>
+</div>
+<p>The easiest way to create an environment is to just specify its name (with <code class="docutils literal notranslate"><span class="pre">-n</span></code>). This will create an empty environment in which you can install packages later (see below).</p>
+</div>
+<div class="section" id="activating-entering-an-environment">
+<h3>Activating (entering) an environment<a class="headerlink" href="#activating-entering-an-environment" title="Permalink to this headline">¶</a></h3>
+<p>To work with your environment, you have to activate it. While an environment is activated all packages that were installed into it are available as if they were installed system-wide.<br />To activate your newly created environment you use:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda activate exampleEnv
+</pre></div>
+</div>
+<p>Depending on your conda installation, this might not work. In this case on Linux you can try:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate exampleEnv
+</pre></div>
+</div>
+<p>After the environment is activated the command prompt of your terminal should change to include the name of the environment. For example it might look like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>exampleEnv<span class="o">)</span> heeger@lagoa:~$
+</pre></div>
+</div>
+</div>
+<div class="section" id="deactivating-leaving-an-environment">
+<h3>Deactivating (leaving) an environment<a class="headerlink" href="#deactivating-leaving-an-environment" title="Permalink to this headline">¶</a></h3>
+<p>You can deactivate an environment with the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-packages-in-an-environment">
+<h3>Installing packages in an environment<a class="headerlink" href="#installing-packages-in-an-environment" title="Permalink to this headline">¶</a></h3>
+<p>Once you activated an environment you can install additional packages with the <code class="docutils literal notranslate"><span class="pre">install</span></code> command. For example to install <code class="docutils literal notranslate"><span class="pre">doit</span></code> use:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda install doit
+</pre></div>
+</div>
+<p>You can specify the version of the package you want to install like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda install <span class="nv">doit</span><span class="o">=</span><span class="m">0</span>.33.1
+</pre></div>
+</div>
+<p>And you can install multiple packages at once (with partially explicit version requirements) like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda install <span class="nv">doit</span><span class="o">=</span><span class="m">0</span>.33.1 numpy
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-an-environment-with-packages">
+<h3>Creating an environment with packages<a class="headerlink" href="#creating-an-environment-with-packages" title="Permalink to this headline">¶</a></h3>
+<p>You can also create an environment and install packages into it in one command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda create -n exampleEnv <span class="nv">doit</span><span class="o">=</span><span class="m">0</span>.33.1 numpy
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-different-channels">
+<h3>Using different channels<a class="headerlink" href="#using-different-channels" title="Permalink to this headline">¶</a></h3>
+<p>If you want to install packages from other <code class="docutils literal notranslate"><span class="pre">channels</span></code> you can use the <code class="docutils literal notranslate"><span class="pre">-c</span></code> option in your command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1">#from within a environment</span>
+conda install -c conda-forge <span class="nv">biopython</span><span class="o">=</span><span class="m">1</span>.78
+<span class="c1">#or when creating the environemnt</span>
+conda create -n exampleEnv -c conda-forge <span class="nv">biopython</span><span class="o">=</span><span class="m">1</span>.78
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-environments-from-a-file">
+<h3>Creating environments from a file<a class="headerlink" href="#creating-environments-from-a-file" title="Permalink to this headline">¶</a></h3>
+<p>To share environments it can be useful to define them in a yaml file, which can be easily shared and create the environment from the file. For example create a file called <code class="docutils literal notranslate"><span class="pre">exampleEnv.yaml</span></code> with the following content:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">exampleEnv</span>
+<span class="nt">channels</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bioconda</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">biopython=1.78</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bioconductor-mgsa=1.38.0</span>
+</pre></div>
+</div>
+<p>The environment can be created from this file with the command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda env create --file exampleEnv.yaml
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scripts/modify_files.html" class="btn btn-neutral float-right" title="Modifying files in python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="snakemake.html" class="btn btn-neutral float-left" title="Snakemake" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Thomas Titscher, Christoph Pohl
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
