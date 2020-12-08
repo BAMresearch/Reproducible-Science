@@ -21,7 +21,7 @@ jobs:
       run: |
         doit
     - name: deploy
-      #if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@4.0.0-beta-01
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
