@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/BAMresearch/Reproducible-Science.svg?branch=master)](https://travis-ci.org/BAMresearch/Reproducible-Science) 
+![build](https://github.com/BAMresearch/Reproducible-Science/workflows/Python%20package/badge.svg)
 
 Reproducible Science Template
 =============================
