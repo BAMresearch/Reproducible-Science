@@ -24,13 +24,15 @@ For completing the tasks itself, however, we mainly rely on the work of the inte
 
    reproducibility.md
    example.md
+   CONTRIBUTING.md
    docker.md
    pydoit.md
    snakemake.md
    conda.md
    scripts/modify_files.rst
+
 From `BAM/jupyter-integration <https://github.com/BAMResearch/jupyter-integration>`_:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * `JupyterLab with version control <https://bamresearch.github.io/jupyter-integration/en_jupyterlab_with_version_control.html>`_
 * `Using Git and TortoiseGit <https://bamresearch.github.io/jupyter-integration/en_version_control_with_git.html>`_

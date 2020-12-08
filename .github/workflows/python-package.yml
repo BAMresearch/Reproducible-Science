@@ -3,15 +3,9 @@
 
 name: Python package
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+on: push
 jobs:
   build:
-
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -26,3 +20,12 @@ jobs:
     - name: Run
       run: |
         doit
+
+  deploy:
+      runs-on: ubuntu-latest
+      needs: build
+      if: github.ref == 'refs/heads/master'
+      steps:
+          - name: Deploy website
+            run: echo "deploying website"
+
