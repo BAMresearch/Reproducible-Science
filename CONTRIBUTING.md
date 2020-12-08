@@ -35,7 +35,7 @@ a preview of the website. This can be done by building it locally. After install
 [dependencies](https://github.com/BAMresearch/Reproducible-Science/blob/master/requirements.txt),
 the commandline tool `doit` (started in the root of the locally cloned repository) will build the
 website and `xdg-open <repo_root>/.build/index.html` should display it. This "make website" workflow
-is run via Travis-CI on every push to the project, so it should work under Ubuntu/Linux. No guarantees
+is run via GitHub Actions on every push to the project, so it should work under Ubuntu/Linux. No guarantees
 for Windows though.
 
 > Note that `doit auto` conveniently rebuilds the website after every change you make and you only need
