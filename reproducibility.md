@@ -37,8 +37,9 @@ most widely known and almost universally available (at least on Linux systems),
 is [make](https://en.wikipedia.org/wiki/Make_(software)). If you're already
 familiar with make and it suits your work, go with it. However, I find the
 syntax dismal, and the timestamp-based decisions sometimes result in
-unnecessary reruns. A python-based alternative which we're going to use here is
-[doit](https://pydoit.org/). If you know Python, you'll feel right at home.
+unnecessary reruns. Python-based alternatives which we're going to use here are
+[doit](pydoit.md) or [Snakemake](snakemake.md) . If you know Python, you'll 
+feel right at home.
 
 
 Keep everything under version control
@@ -71,7 +72,7 @@ how you've set up your environment.
 A new approach is to use containers, which will allow you to easily distribute
 your environmental setup along with the rest of the code, while also being
 faster than virtual machines. This is discussed in detail in the
-[docker](docker.html) section.
+[docker](docker) section.
 
 
 For Analyses That Include Randomness, Note Underlying Random Seeds

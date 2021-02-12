@@ -1,0 +1,6 @@
+sphinx
+sphinx-rtd-theme
+recommonmark
+doit
+pyyaml
+openpyxl

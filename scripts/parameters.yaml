@@ -1,0 +1,20 @@
+Material parameters:
+    E:
+        name: "Young's modulus"
+        value: 20000.
+        unit: "MPa"
+    nu:
+        name: "Poission's ratio"
+        value: 0.2
+        unit: "-"
+    ft:
+        name: "tensile strength"
+        value: 4.
+        unit: "MPa"
+        
+Simulation parameters:
+    dt:
+        name: "time increment"
+        value: 0.1
+        unit: "s"
+

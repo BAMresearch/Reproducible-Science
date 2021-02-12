@@ -1,3 +1,5 @@
+# Thanks to Christoph Pohl for setting this up!
+
 FROM debian:10-slim
 
 # Pydoit and Fenics

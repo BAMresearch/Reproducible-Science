@@ -124,17 +124,17 @@ which will ask you for your username and password, and store these so that you
 can push images to your account.
 
 To push an image, it needs to be tagged correctly with your account name, so
-for me this would be
+for us this would be
 
-    docker build --tag christophpohl/my_pandas_image .
+    docker build --tag fb77/my_pandas_image .
 
-where `christophpohl` is the username of my Dockerhub account. Substitute your
+where `fb77` is the username of our Dockerhub account. Substitute your
 own login. Now you can upload the new image to Dockerhub using the `push` command:
 
     docker push
 
 Once that is finished, you can run
 
-    docker run christophpohl/my_pandas_image python3 -c "import pandas; print(pandas.__version__)"
+    docker run fb77/my_pandas_image python3 -c "import pandas; print(pandas.__version__)"
 
 on any computer that has an internet connection (and Docker installed).

@@ -1,0 +1,14 @@
+* This is a made-up input file for the 
+* Tool <ANSYS, ABACUS, you name it...>
+* that contains some fixed parameters,
+* and some that can be defined within
+* a workflow.
+
+MESH     = "bridge_fine.xdmf";
+E        = 20000.0;
+nu       = 0.3;
+P2       = P2_PLACEHOLDER;
+delta_t  = 0.1;
+boundary = "periodic";
+
+...
