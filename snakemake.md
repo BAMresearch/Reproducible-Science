@@ -35,7 +35,7 @@ Note that some of the more advances features (like report generation) might not 
 Basic use
 ---------
 Snakemake has many features and options. This is only a very small introduction. You can find the full documentation [here](https://snakemake.readthedocs.io).  
-   
+
 A Snakemake workflow consist of a set of rules that are implicitly linked by their input and output files.
 A rule normally has at least one input file, at least one output file and defines how to produce one from the other.
 A minimal toy example (that just copies a file) might look like this:
@@ -126,7 +126,7 @@ snakemake
 ~~~
 in the folder where the file is. If you give your file a different name (e.g. `main.snakemake.py`), you have to use the `-s` option to execute your worklflow:
 ~~~sh
-sankemake -s main.snakemake.py
+snakemake -s main.snakemake.py
 ~~~
 
 Wildcards
@@ -224,7 +224,7 @@ rule clusterExample:
     shell:
         "blastn -query {input.query} -db {input.sb} -out {output}
 ~~~
-To run this using conda you have to use the `--use-conda` option when you execute sankemake:
+To run this using conda you have to use the `--use-conda` option when you execute snakemake:
 ~~~sh
 snakemake --use-conda
 ~~~
