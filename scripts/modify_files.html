@@ -1,69 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Modifying files in python &mdash; Reproducible Computational Science  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Conda" href="../conda.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Reproducible Computational Science
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -71,19 +37,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../reproducibility.html">What makes scientific results reproducible?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example.html">A complete, executable example</a></li>
@@ -106,81 +61,38 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Reproducible Computational Science</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Modifying files in python</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/scripts/modify_files.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="modifying-files-in-python">
-<h1>Modifying files in python<a class="headerlink" href="#modifying-files-in-python" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="modifying-files-in-python">
+<h1>Modifying files in python<a class="headerlink" href="#modifying-files-in-python" title="Permalink to this heading"></a></h1>
 <p>Simple text files like <code class="docutils literal notranslate"><span class="pre">parameters.txt</span></code></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">P1</span><span class="o">=</span><span class="mi">5</span>
-<span class="n">P2</span><span class="o">=</span><span class="mi">17</span>
-<span class="n">P5</span><span class="o">=</span><span class="mi">12</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">P1</span><span class="o">=</span><span class="mi">5</span>
+<span class="linenos">2</span><span class="n">P2</span><span class="o">=</span><span class="mi">17</span>
+<span class="linenos">3</span><span class="n">P5</span><span class="o">=</span><span class="mi">12</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>can easily be read (<code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>) via</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;parameters.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">prm_file</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">prm_file</span><span class="p">:</span>
@@ -191,47 +103,28 @@
 </div>
 <p>Other file formats like <a class="reference external" href="https://pyyaml.org/wiki/PyYAMLDocumentation">YAML</a> or
 <a class="reference external" href="https://docs.python.org/3/library/json.html">JSON</a> offer a more convenient access. For example, modifying the <code class="docutils literal notranslate"><span class="pre">parameters.yaml</span></code></p>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Material</span> <span class="n">parameters</span><span class="p">:</span>
-    <span class="n">E</span><span class="p">:</span>
-        <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Young&#39;s modulus&quot;</span>
-        <span class="n">value</span><span class="p">:</span> <span class="mf">20000.</span>
-        <span class="n">unit</span><span class="p">:</span> <span class="s2">&quot;MPa&quot;</span>
-    <span class="n">nu</span><span class="p">:</span>
-        <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Poission&#39;s ratio&quot;</span>
-        <span class="n">value</span><span class="p">:</span> <span class="mf">0.2</span>
-        <span class="n">unit</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span>
-    <span class="n">ft</span><span class="p">:</span>
-        <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;tensile strength&quot;</span>
-        <span class="n">value</span><span class="p">:</span> <span class="mf">4.</span>
-        <span class="n">unit</span><span class="p">:</span> <span class="s2">&quot;MPa&quot;</span>
-        
-<span class="n">Simulation</span> <span class="n">parameters</span><span class="p">:</span>
-    <span class="n">dt</span><span class="p">:</span>
-        <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;time increment&quot;</span>
-        <span class="n">value</span><span class="p">:</span> <span class="mf">0.1</span>
-        <span class="n">unit</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span>
-
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">Material</span> <span class="n">parameters</span><span class="p">:</span>
+<span class="linenos"> 2</span>    <span class="n">E</span><span class="p">:</span>
+<span class="linenos"> 3</span>        <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Young&#39;s modulus&quot;</span>
+<span class="linenos"> 4</span>        <span class="n">value</span><span class="p">:</span> <span class="mf">20000.</span>
+<span class="linenos"> 5</span>        <span class="n">unit</span><span class="p">:</span> <span class="s2">&quot;MPa&quot;</span>
+<span class="linenos"> 6</span>    <span class="n">nu</span><span class="p">:</span>
+<span class="linenos"> 7</span>        <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Poission&#39;s ratio&quot;</span>
+<span class="linenos"> 8</span>        <span class="n">value</span><span class="p">:</span> <span class="mf">0.2</span>
+<span class="linenos"> 9</span>        <span class="n">unit</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span>
+<span class="linenos">10</span>    <span class="n">ft</span><span class="p">:</span>
+<span class="linenos">11</span>        <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;tensile strength&quot;</span>
+<span class="linenos">12</span>        <span class="n">value</span><span class="p">:</span> <span class="mf">4.</span>
+<span class="linenos">13</span>        <span class="n">unit</span><span class="p">:</span> <span class="s2">&quot;MPa&quot;</span>
+<span class="linenos">14</span>        
+<span class="linenos">15</span><span class="n">Simulation</span> <span class="n">parameters</span><span class="p">:</span>
+<span class="linenos">16</span>    <span class="n">dt</span><span class="p">:</span>
+<span class="linenos">17</span>        <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;time increment&quot;</span>
+<span class="linenos">18</span>        <span class="n">value</span><span class="p">:</span> <span class="mf">0.1</span>
+<span class="linenos">19</span>        <span class="n">unit</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span>
+<span class="linenos">20</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>requires <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pyyaml</span></code> and is done by</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
 
@@ -248,50 +141,33 @@
     <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">prm</span><span class="p">,</span> <span class="n">prm_file</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Material</span> <span class="n">parameters</span><span class="p">:</span>
-  <span class="n">E</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="n">Young</span><span class="s1">&#39;s modulus</span>
-    <span class="n">unit</span><span class="p">:</span> <span class="n">MPa</span>
-    <span class="n">value</span><span class="p">:</span> <span class="mf">17840.2</span>
-  <span class="n">ft</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="n">tensile</span> <span class="n">strength</span>
-    <span class="n">unit</span><span class="p">:</span> <span class="n">MPa</span>
-    <span class="n">value</span><span class="p">:</span> <span class="mf">4.0</span>
-  <span class="n">nu</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="n">Poission</span><span class="s1">&#39;s ratio</span>
-    <span class="n">unit</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span>
-    <span class="n">value</span><span class="p">:</span> <span class="mf">0.2</span>
-<span class="n">Simulation</span> <span class="n">parameters</span><span class="p">:</span>
-  <span class="n">dt</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="n">time</span> <span class="n">increment</span>
-    <span class="n">unit</span><span class="p">:</span> <span class="n">s</span>
-    <span class="n">value</span><span class="p">:</span> <span class="mf">0.1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">Material</span> <span class="n">parameters</span><span class="p">:</span>
+<span class="linenos"> 2</span>  <span class="n">E</span><span class="p">:</span>
+<span class="linenos"> 3</span>    <span class="n">name</span><span class="p">:</span> <span class="n">Young</span><span class="s1">&#39;s modulus</span>
+<span class="linenos"> 4</span>    <span class="n">unit</span><span class="p">:</span> <span class="n">MPa</span>
+<span class="linenos"> 5</span>    <span class="n">value</span><span class="p">:</span> <span class="mf">17840.2</span>
+<span class="linenos"> 6</span>  <span class="n">ft</span><span class="p">:</span>
+<span class="linenos"> 7</span>    <span class="n">name</span><span class="p">:</span> <span class="n">tensile</span> <span class="n">strength</span>
+<span class="linenos"> 8</span>    <span class="n">unit</span><span class="p">:</span> <span class="n">MPa</span>
+<span class="linenos"> 9</span>    <span class="n">value</span><span class="p">:</span> <span class="mf">4.0</span>
+<span class="linenos">10</span>  <span class="n">nu</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="n">name</span><span class="p">:</span> <span class="n">Poission</span><span class="s1">&#39;s ratio</span>
+<span class="linenos">12</span>    <span class="n">unit</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span>
+<span class="linenos">13</span>    <span class="n">value</span><span class="p">:</span> <span class="mf">0.2</span>
+<span class="linenos">14</span><span class="n">Simulation</span> <span class="n">parameters</span><span class="p">:</span>
+<span class="linenos">15</span>  <span class="n">dt</span><span class="p">:</span>
+<span class="linenos">16</span>    <span class="n">name</span><span class="p">:</span> <span class="n">time</span> <span class="n">increment</span>
+<span class="linenos">17</span>    <span class="n">unit</span><span class="p">:</span> <span class="n">s</span>
+<span class="linenos">18</span>    <span class="n">value</span><span class="p">:</span> <span class="mf">0.1</span>
 </pre></div>
-</td></tr></table></div>
-<div class="section" id="interacting-with-ms-excel">
-<h2>Interacting with MS Excel<a class="headerlink" href="#interacting-with-ms-excel" title="Permalink to this headline">¶</a></h2>
+</div>
+<section id="interacting-with-ms-excel">
+<h2>Interacting with MS Excel<a class="headerlink" href="#interacting-with-ms-excel" title="Permalink to this heading"></a></h2>
 <p>A popular package that provides a <em>pythonic</em> representation of MS Excel
 workbooks/worksheets is <a class="reference external" href="https://pypi.org/project/openpyxl/">openpyxl</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">openpyxl</span></code></p>
-<div class="section" id="open-a-worksheet">
-<h3>Open a worksheet<a class="headerlink" href="#open-a-worksheet" title="Permalink to this headline">¶</a></h3>
+<section id="open-a-worksheet">
+<h3>Open a worksheet<a class="headerlink" href="#open-a-worksheet" title="Permalink to this heading"></a></h3>
 <img alt="../_images/prm_xlsx.png" src="../_images/prm_xlsx.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openpyxl</span>
 
@@ -304,9 +180,9 @@ workbooks/worksheets is <a class="reference external" href="https://pypi.org/pro
 <span class="k">assert</span> <span class="n">worksheet</span> <span class="o">==</span> <span class="n">worksheet_by_name</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="reading-from-a-worksheet">
-<h3>Reading from a worksheet<a class="headerlink" href="#reading-from-a-worksheet" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="reading-from-a-worksheet">
+<h3>Reading from a worksheet<a class="headerlink" href="#reading-from-a-worksheet" title="Permalink to this heading"></a></h3>
 <p>You can either access cells by name …</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cell A6 contains:&quot;</span><span class="p">,</span> <span class="n">worksheet</span><span class="p">[</span><span class="s2">&quot;A6&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
@@ -330,9 +206,9 @@ to find the cell that containts “P2” and to access its right neighbor.</p>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cell right of P2 has value:&quot;</span><span class="p">,</span> <span class="n">worksheet</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="modifying-a-worksheet">
-<h3>Modifying a worksheet<a class="headerlink" href="#modifying-a-worksheet" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="modifying-a-worksheet">
+<h3>Modifying a worksheet<a class="headerlink" href="#modifying-a-worksheet" title="Permalink to this heading"></a></h3>
 <p>Similar to reading cells, you can assign values by name or index.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">worksheet</span><span class="p">[</span><span class="s2">&quot;B11&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;P_new&quot;</span>
 <span class="n">worksheet</span><span class="p">[</span><span class="s2">&quot;C11&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">17.0</span>
@@ -344,9 +220,9 @@ to find the cell that containts “P2” and to access its right neighbor.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">workbook</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;parameters_modified.xlsx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="use-cases">
-<h3>Use cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="use-cases">
+<h3>Use cases<a class="headerlink" href="#use-cases" title="Permalink to this heading"></a></h3>
 <p>You can now get creative and write a function that finds the position of a
 string within a worksheet …</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">row_col_of</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">parameter_name</span><span class="p">):</span>
@@ -364,35 +240,22 @@ string within a worksheet …</p>
 </div>
 <p>and write it to a different file, e.g. by replacing a known placeholder with
 the value. We therefore load a <code class="docutils literal notranslate"><span class="pre">base_input_file.dat</span></code> (containing the placeholders),</p>
-<div class="highlight-none notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span>* This is a made-up input file for the 
-* Tool &lt;ANSYS, ABACUS, you name it...&gt;
-* that contains some fixed parameters,
-* and some that can be defined within
-* a workflow.
-
-MESH     = &quot;bridge_fine.xdmf&quot;;
-E        = 20000.0;
-nu       = 0.3;
-P2       = P2_PLACEHOLDER;
-delta_t  = 0.1;
-boundary = &quot;periodic&quot;;
-
-...
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>* This is a made-up input file for the 
+<span class="linenos"> 2</span>* Tool &lt;ANSYS, ABACUS, you name it...&gt;
+<span class="linenos"> 3</span>* that contains some fixed parameters,
+<span class="linenos"> 4</span>* and some that can be defined within
+<span class="linenos"> 5</span>* a workflow.
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>MESH     = &quot;bridge_fine.xdmf&quot;;
+<span class="linenos"> 8</span>E        = 20000.0;
+<span class="linenos"> 9</span>nu       = 0.3;
+<span class="linenos">10</span>P2       = P2_PLACEHOLDER;
+<span class="linenos">11</span>delta_t  = 0.1;
+<span class="linenos">12</span>boundary = &quot;periodic&quot;;
+<span class="linenos">13</span>
+<span class="linenos">14</span>...
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>replace the
 placeholder with our value from the Excel sheet and save it to a different file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;base_input_file.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -400,9 +263,9 @@ placeholder with our value from the Excel sheet and save it to a different file.
 <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;input_file_modified.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s_modified</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="further-reading">
-<h3>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="further-reading">
+<h3>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading"></a></h3>
 <dl class="simple">
 <dt><a class="reference external" href="https://automatetheboringstuff.com/">Automate the boring stuff</a>, e.g.</dt><dd><ul class="simple">
 <li><p><a class="reference external" href="https://automatetheboringstuff.com/2e/chapter9/">Chapter 9 Reading and writing files</a></p></li>
@@ -424,10 +287,10 @@ placeholder with our value from the Excel sheet and save it to a different file.
 <li><p>can result in ugly code, but that is OK.</p></li>
 </ul>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="interacting-with-ms-word">
-<h2>Interacting with MS Word<a class="headerlink" href="#interacting-with-ms-word" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="interacting-with-ms-word">
+<h2>Interacting with MS Word<a class="headerlink" href="#interacting-with-ms-word" title="Permalink to this heading"></a></h2>
 <p>One use case in reproducible science that works great in the context of
 LaTeX files is the separation of text and images, where the images are
 generated automatically in separate workflows. For MS Word, the challenge
@@ -471,54 +334,37 @@ the *.docx file, so you have to rely on the ordering.</p>
 have no experience how the methods above perform in practice. However, I
 believe that this topic is important and I suggest forming a working group
 (lead by someone else) that investigates the methods further.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../conda.html" class="btn btn-neutral float-left" title="Conda" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Thomas Titscher, Christoph Pohl.
-
-    </p>
+    <p>&#169; Copyright 2020, Thomas Titscher, Christoph Pohl.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

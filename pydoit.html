@@ -1,70 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>doit &mdash; Reproducible Computational Science  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Snakemake" href="snakemake.html" />
     <link rel="prev" title="Docker" href="docker.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> Reproducible Computational Science
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -72,19 +38,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="reproducibility.html">What makes scientific results reproducible?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example.html">A complete, executable example</a></li>
@@ -105,80 +60,39 @@
 <li class="toctree-l1"><a class="reference internal" href="scripts/modify_files.html">Modifying files in python</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Reproducible Computational Science</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>doit</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/pydoit.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="doit">
-<h1>doit<a class="headerlink" href="#doit" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="doit">
+<h1>doit<a class="headerlink" href="#doit" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="https://pydoit.org">doit</a> on <a class="reference external" href="https://github.com/pydoit/doit">github</a></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip3 install doit
 apt install python3-doit 
 </pre></div>
 </div>
-<div class="section" id="what-is-it">
-<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<section id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">doit</span></code> is a python-based workflow tool on file-level that lets you specify <em>actions</em> that connect <em>dependencies</em> to <em>targets</em>, e.g.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># file dodo.py</span>
 <span class="k">def</span> <span class="nf">task_paper</span><span class="p">():</span>
@@ -199,9 +113,9 @@ Also, it will only rerun <em>actions</em> if their <em>dependencies</em> change.
 That means that running <code class="docutils literal notranslate"><span class="pre">doit</span> <span class="pre">paper</span></code> again, will result in no <em>action</em>, as everything is up-to-date.
 Modifying only <code class="docutils literal notranslate"><span class="pre">paper.tex</span></code>, will cause <code class="docutils literal notranslate"><span class="pre">doit</span></code> to run <code class="docutils literal notranslate"><span class="pre">pdflatex</span></code> again.
 Modifying <code class="docutils literal notranslate"><span class="pre">plot.py</span></code> requires all tasks to be run again.</p>
-</div>
-<div class="section" id="why-should-i-use-it">
-<h2>Why should I use it?<a class="headerlink" href="#why-should-i-use-it" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="why-should-i-use-it">
+<h2>Why should I use it?<a class="headerlink" href="#why-should-i-use-it" title="Permalink to this heading"></a></h2>
 <p>A single <code class="docutils literal notranslate"><span class="pre">doit</span></code> command will trigger the execution of the whole chain of actions to produce a desired output (like a paper). Benefits:</p>
 <ul class="simple">
 <li><p>It documents all steps from source files to the output in an objective way.</p></li>
@@ -209,9 +123,9 @@ Modifying <code class="docutils literal notranslate"><span class="pre">plot.py</
 <li><p>Changes to input files automatically propagate you changes in the figures/pdf.</p></li>
 <li><p>It proofs to you/colleges/reviewers that no manual manipulations occur.</p></li>
 </ul>
-</div>
-<div class="section" id="working-with-multiple-systems">
-<h2>Working with multiple systems<a class="headerlink" href="#working-with-multiple-systems" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="working-with-multiple-systems">
+<h2>Working with multiple systems<a class="headerlink" href="#working-with-multiple-systems" title="Permalink to this heading"></a></h2>
 <p>Complex workflows may require several machines to run the actions. Reasons include:</p>
 <ul class="simple">
 <li><p>Several scientists want to work on the same workflow</p></li>
@@ -227,8 +141,8 @@ Modifying <code class="docutils literal notranslate"><span class="pre">plot.py</
 That means that each task has to be executed at least once, even if the <em>targets</em> already exist or are up-to-date.
 Problems arise if, due to some of the reasons above, the current machine is unable to do so.</p>
 <p>One remedy is to store a <em>target</em> in our version control system and to decouple the whole workflow into multiple <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> files, each in a separate folder.</p>
-<div class="section" id="proposed-setup">
-<h3>Proposed setup:<a class="headerlink" href="#proposed-setup" title="Permalink to this headline">¶</a></h3>
+<section id="proposed-setup">
+<h3>Proposed setup:<a class="headerlink" href="#proposed-setup" title="Permalink to this heading"></a></h3>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span>    <span class="n">repo</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">dodo</span><span class="o">.</span><span class="n">py</span>           <span class="c1"># generates input data</span>
     <span class="n">repo</span><span class="o">/</span><span class="n">simulations</span><span class="o">/</span><span class="n">dodo</span><span class="o">.</span><span class="n">py</span>    <span class="c1"># turns input data into results</span>
     <span class="n">repo</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">dodo</span><span class="o">.</span><span class="n">py</span>         <span class="c1"># turns results into images</span>
@@ -279,10 +193,10 @@ If you want to execute the full workflow, calling <code class="docutils literal 
 <div><p>Note that is the opposite of why you want to use <code class="docutils literal notranslate"><span class="pre">doit</span></code> in the first place.
 It is now your responsibility to run the whole workflow of <code class="docutils literal notranslate"><span class="pre">repo/dodo.py</span></code> from time to time manually, or via a <em>nighly build</em> on some server.</p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="skipping-huge-simulations">
-<h2>Skipping huge simulations<a class="headerlink" href="#skipping-huge-simulations" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="skipping-huge-simulations">
+<h2>Skipping huge simulations<a class="headerlink" href="#skipping-huge-simulations" title="Permalink to this heading"></a></h2>
 <p>If you just want to skip tasks (e.g. if they are too time consuming) you can define a flag and skip the task definition, if that flag is set.
 The simplest way would be to manually set the flag in the <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file like</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -309,55 +223,38 @@ So it can be advantageous to change the flag without modifying the file, e.g. vi
 </pre></div>
 </div>
 <p>This allows you to have “DOIT_SKIP=True” on your local machine, but run it with “DOIT_SKIP=” from time to time on a server to ensure full reproducibility.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="snakemake.html" class="btn btn-neutral float-right" title="Snakemake" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="docker.html" class="btn btn-neutral float-left" title="Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="snakemake.html" class="btn btn-neutral float-right" title="Snakemake" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Thomas Titscher, Christoph Pohl.
-
-    </p>
+    <p>&#169; Copyright 2020, Thomas Titscher, Christoph Pohl.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

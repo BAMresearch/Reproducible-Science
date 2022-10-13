@@ -1,70 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Snakemake &mdash; Reproducible Computational Science  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Conda" href="conda.html" />
     <link rel="prev" title="doit" href="pydoit.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> Reproducible Computational Science
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -72,19 +38,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="reproducibility.html">What makes scientific results reproducible?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example.html">A complete, executable example</a></li>
@@ -107,91 +62,50 @@
 <li class="toctree-l1"><a class="reference internal" href="scripts/modify_files.html">Modifying files in python</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Reproducible Computational Science</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Snakemake</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/snakemake.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="snakemake">
-<h1>Snakemake<a class="headerlink" href="#snakemake" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-is-it">
-<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="snakemake">
+<h1>Snakemake<a class="headerlink" href="#snakemake" title="Permalink to this heading"></a></h1>
+<section id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Snakemake</span></code> is a python based workflow management system that allows for whole analysis pipelines to be automatized.
 It lets you define workflows as a set of rules that state how to produce one or more output files from one or more input files.
 Dependencies between rules will be automatically inferred on execution and independent rules will be evaluated in parallel.
 If the output files for a rule are newer than the input files it will not be executed again.
 Snakemake can directly use conda or docker for reproducible software environments.</p>
-</div>
-<div class="section" id="why-should-i-use-it">
-<h2>Why should I use it?<a class="headerlink" href="#why-should-i-use-it" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="why-should-i-use-it">
+<h2>Why should I use it?<a class="headerlink" href="#why-should-i-use-it" title="Permalink to this heading"></a></h2>
 <p>Snakemake allows to automatize data analysis.
 On the one hand this means that analysis can be quickly repeated if necessary (e.g. when new data is available).
 On the other hand automation drastically reduces the potential for human error.
 The rule-based structure of Snakemake enforces a modular design, that improves organization of the code and helps with reusability of analysis steps.
 Additionally the integration with conda allows for automatic installation of required software as well as the explicit selection and documentation of software versions, which is necessary for reproducibility.</p>
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>Snakemake can be installed via <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge snakemake
 </pre></div>
@@ -201,9 +115,9 @@ Additionally the integration with conda allows for automatic installation of req
 </pre></div>
 </div>
 <p>Note that some of the more advances features (like report generation) might not be available when you install via <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
-</div>
-<div class="section" id="basic-use">
-<h2>Basic use<a class="headerlink" href="#basic-use" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="basic-use">
+<h2>Basic use<a class="headerlink" href="#basic-use" title="Permalink to this heading"></a></h2>
 <p>Snakemake has many features and options. This is only a very small introduction. You can find the full documentation <a class="reference external" href="https://snakemake.readthedocs.io">here</a>.</p>
 <p>A Snakemake workflow consist of a set of rules that are implicitly linked by their input and output files.
 A rule normally has at least one input file, at least one output file and defines how to produce one from the other.
@@ -288,12 +202,12 @@ rule thirdRule:
 </pre></div>
 </div>
 <p>in the folder where the file is. If you give your file a different name (e.g. <code class="docutils literal notranslate"><span class="pre">main.snakemake.py</span></code>), you have to use the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option to execute your worklflow:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sankemake -s main.snakemake.py
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>snakemake -s main.snakemake.py
 </pre></div>
 </div>
-</div>
-<div class="section" id="wildcards">
-<h2>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="wildcards">
+<h2>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this heading"></a></h2>
 <p>In many cases you want a rule executed for multiple files (e.g. different samples).
 You can use wildcards in input and output file names to achieve this.
 For example:</p>
@@ -321,9 +235,9 @@ For example:</p>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">expand</span></code> command will create all combinations of the entries of both lists.</p>
-</div>
-<div class="section" id="parallelization">
-<h2>Parallelization<a class="headerlink" href="#parallelization" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="parallelization">
+<h2>Parallelization<a class="headerlink" href="#parallelization" title="Permalink to this heading"></a></h2>
 <p>Snakemake will by default only use one thread, but you can use the <code class="docutils literal notranslate"><span class="pre">-j</span></code> option to give it access to multiple cores. In this case independent rules will be executed in parallel automatically. In addition you can use multiple threads in one rule if the software you are using supports it using the <code class="docutils literal notranslate"><span class="pre">threads</span></code> keyword. Here is a hypothetical example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">exampleParallel</span><span class="p">:</span>
     <span class="nb">input</span><span class="p">:</span> <span class="s2">&quot;inFile.txt&quot;</span>
@@ -334,9 +248,9 @@ For example:</p>
 </pre></div>
 </div>
 <p>If you run this example with <code class="docutils literal notranslate"><span class="pre">-j</span> <span class="pre">8</span></code>, eight cores will be used to run <code class="docutils literal notranslate"><span class="pre">parallelProgram</span></code>. If you use <code class="docutils literal notranslate"><span class="pre">-j</span> <span class="pre">4</span></code>, the rule will automatically only use four threads. If you use <code class="docutils literal notranslate"><span class="pre">-j</span> <span class="pre">16</span></code>, two instances of the rule will be evaluated in parallel, if they are independent.</p>
-</div>
-<div class="section" id="parametrization">
-<h2>Parametrization<a class="headerlink" href="#parametrization" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="parametrization">
+<h2>Parametrization<a class="headerlink" href="#parametrization" title="Permalink to this heading"></a></h2>
 <p>You can obviously hard code command line parameters into the command you give to the <code class="docutils literal notranslate"><span class="pre">shell</span></code> command, but it is better to use the <code class="docutils literal notranslate"><span class="pre">params</span></code> keyword to have them all in one place:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">clusterExample</span><span class="p">:</span>
     <span class="nb">input</span><span class="p">:</span> <span class="s2">&quot;data.tsv&quot;</span>
@@ -347,10 +261,10 @@ For example:</p>
 </pre></div>
 </div>
 <p>You can also store all parameters in a separate configuration file (yaml or json). For the example above you could have a config file <code class="docutils literal notranslate"><span class="pre">config.json</span></code>:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
- <span class="nt">&quot;k&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
- <span class="nt">&quot;dist&quot;</span><span class="p">:</span> <span class="s2">&quot;euclidean&quot;</span>
-<span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;k&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;dist&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;euclidean&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The snakefile could than look like this:</p>
@@ -363,16 +277,16 @@ For example:</p>
         <span class="s2">&quot;kMeansCluster -k </span><span class="si">{config[k]}</span><span class="s2"> -d </span><span class="si">{config[dist]}</span><span class="s2"> -o </span><span class="si">{output}</span><span class="s2"> </span><span class="si">{input}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="conda-integration">
-<h2>Conda integration<a class="headerlink" href="#conda-integration" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="conda-integration">
+<h2>Conda integration<a class="headerlink" href="#conda-integration" title="Permalink to this heading"></a></h2>
 <p>Snakemake offers direct integration with <a class="reference external" href="https://docs.conda.io">conda</a>, which allows to fix software versions as well as  automation of installation.
 For this you have to create a conda environment file that defines the software, the version you want and the conda <code class="docutils literal notranslate"><span class="pre">channel</span></code> it can be found in (if not the default).
 For example for <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">Blast</a> this environment file (<code class="docutils literal notranslate"><span class="pre">blast.yaml</span></code>) would look like this:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">channels</span><span class="p">:</span>
- <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bioconda</span>
-<span class="nt">dependencies</span><span class="p">:</span>
- <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">blast=2.9.0</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">channels</span><span class="p">:</span><span class="w"></span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bioconda</span><span class="w"></span>
+<span class="nt">dependencies</span><span class="p">:</span><span class="w"></span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blast=2.9.0</span><span class="w"></span>
 </pre></div>
 </div>
 <p>To use this environment in your Snakemake workflow, use the <code class="docutils literal notranslate"><span class="pre">conda</span></code> keyword:</p>
@@ -385,14 +299,14 @@ For example for <a class="reference external" href="https://blast.ncbi.nlm.nih.g
         <span class="s2">&quot;blastn -query </span><span class="si">{input.query}</span><span class="s2"> -db </span><span class="si">{input.sb}</span><span class="s2"> -out </span><span class="si">{output}</span>
 </pre></div>
 </div>
-<p>To run this using conda you have to use the <code class="docutils literal notranslate"><span class="pre">--use-conda</span></code> option when you execute sankemake:</p>
+<p>To run this using conda you have to use the <code class="docutils literal notranslate"><span class="pre">--use-conda</span></code> option when you execute snakemake:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>snakemake --use-conda
 </pre></div>
 </div>
 <p>Snakemake will then use conda (which has to be installed) to automatically install Blast and run it.</p>
-</div>
-<div class="section" id="other-features">
-<h2>Other features<a class="headerlink" href="#other-features" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="other-features">
+<h2>Other features<a class="headerlink" href="#other-features" title="Permalink to this heading"></a></h2>
 <p>Snakemake is a powerful tool, that offers many additional features. You can find more details in the <a class="reference external" href="https://snakemake.readthedocs.io">documentation</a>. Interesting features include:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://snakemake.readthedocs.io/en/stable/executing/cluster.html">Cluster</a> and <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/executing/cloud.html">cloud</a> execution</p></li>
@@ -400,55 +314,38 @@ For example for <a class="reference external" href="https://blast.ncbi.nlm.nih.g
 <li><p><a class="reference external" href="https://snakemake.readthedocs.io/en/stable/snakefiles/modularization.html">Modularization</a> with wrappers and sub-workflows</p></li>
 <li><p>Automated config file <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#validation">validation</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="conda.html" class="btn btn-neutral float-right" title="Conda" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="pydoit.html" class="btn btn-neutral float-left" title="doit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="conda.html" class="btn btn-neutral float-right" title="Conda" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Thomas Titscher, Christoph Pohl.
-
-    </p>
+    <p>&#169; Copyright 2020, Thomas Titscher, Christoph Pohl.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
